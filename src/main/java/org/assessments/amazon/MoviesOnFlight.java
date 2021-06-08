@@ -35,17 +35,17 @@ public class MoviesOnFlight {
 		final int d = 250;
 		final int takeOffAndLandingTime = 30;
 
-		final int[] movies = twoSum(movieDurations, d - takeOffAndLandingTime);
+		final int[] movies = twoSumClosest(movieDurations, d - takeOffAndLandingTime);
 		System.out.println(Arrays.toString(movies));
 	}
 
-	public static int[] twoSum(int[] nums, int target) {
+	public static int[] twoSumClosest(int[] nums, int target) {
 		if (nums.length < 2)
 			throw new IllegalArgumentException("Array should contain at least two elements.");
 		final int[] numbers = nums.clone();
 		Arrays.sort(numbers);
-		int firstIdx = 0;
-		int secondIdx = 0;
+		int firstIdx = -1;
+		int secondIdx = -1;
 		int closestSum = Integer.MIN_VALUE;
 
 		for (int low = 0, high = numbers.length - 1; low < high;) {
@@ -62,15 +62,10 @@ public class MoviesOnFlight {
 
 		}
 
-		final int[] indices = { -1, -1 };
-		for (int i = 0; i < nums.length && indices[0] == -1; i++)
-			if (numbers[firstIdx] == nums[i])
-				indices[0] = i;
+		if (firstIdx == -1 || secondIdx == -1)
+			throw new IllegalArgumentException(
+					String.format("Could not find a pair of elements whose total <= %d", target));
 
-		for (int i = nums.length - 1; i >= 0 && indices[1] == -1; i--)
-			if (numbers[secondIdx] == nums[i])
-				indices[1] = i;
-
-		return indices;
+		return new int[] { numbers[firstIdx], numbers[secondIdx] };
 	}
 }
