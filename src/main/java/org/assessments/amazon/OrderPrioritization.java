@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import junit.framework.Assert;
 
 public class OrderPrioritization {
 	private static Pattern FIRST_SPACE = Pattern.compile("(^[\\da-zA-Z]*)\\s(.*)");
@@ -29,7 +28,7 @@ public class OrderPrioritization {
 		
 		// expected result: abc1 aa bb cc, def1 bb cd, abc1 11 2, abef1 12 4
 		final String expected = "[abc1 aa bb cc, def1 bb cd, abc1 11 2, abef1 12 4]";
-		Assert.assertEquals(expected, Arrays.toString(orders));
+		assert expected.equals(Arrays.toString(orders));
 	}
 
 	public static void orderPrioritization(String[] orders) {
