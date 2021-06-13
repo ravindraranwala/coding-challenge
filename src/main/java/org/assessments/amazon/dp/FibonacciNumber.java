@@ -1,4 +1,4 @@
-package org.assessments.amazon;
+package org.assessments.amazon.dp;
 
 public class FibonacciNumber {
 
