@@ -17,11 +17,9 @@ class LongestPalindromicSubstring {
 
 		final int n = s.length();
 		final int[][] l = new int[n][n];
-		int start = -1;
-		for (int i = 0; i < n; i++) {
+		int start = 0;
+		for (int i = 0; i < n; i++) 
 			l[i][i] = 1;
-			start = i;
-		}
 
 		for (int len = 2; len <= n; len++) {
 			for (int i = 0; i < n - len + 1; i++) {
