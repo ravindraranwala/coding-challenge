@@ -1,4 +1,4 @@
-package org.assessments.amazon;
+package org.assessments;
 
 import java.util.Arrays;
 import java.util.Comparator;

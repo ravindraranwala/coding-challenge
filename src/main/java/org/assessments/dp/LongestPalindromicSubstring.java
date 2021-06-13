@@ -1,4 +1,4 @@
-package org.assessments.amazon.dp;
+package org.assessments.dp;
 
 class LongestPalindromicSubstring {
 	LongestPalindromicSubstring() {
