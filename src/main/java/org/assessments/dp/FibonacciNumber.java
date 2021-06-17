@@ -15,11 +15,16 @@ public class FibonacciNumber {
 		// trivial case.
 		if (n < 2)
 			return n;
-		final int[] fibSeries = new int[n + 1];
+		final int[] fibSeries = new int[2];
 		fibSeries[0] = 0;
 		fibSeries[1] = 1;
 		for (int i = 2; i <= n; i++)
-			fibSeries[i] = fibSeries[i - 1] + fibSeries[i - 2];
-		return fibSeries[n];
+		{
+			final int f = fibSeries[0] + fibSeries[1];
+			// then, swap it.
+			fibSeries[0] = fibSeries[1];
+			fibSeries[1] = f;
+		}
+		return fibSeries[1];
 	}
 }
